@@ -8,9 +8,9 @@
     <a v-else class="block" href="javascript:void(0)">
       <img :src="payload.logoUrl" class="object-cover w-full h-40 md:h-60 border rounded" alt />
       <h5
-        class="text-lg md:font-bold md:text-xl mt-2 font-semibold text-gray-900"
+        class="text-base font-semibold md:font-bold md:text-xl mt-2 text-gray-900"
       >{{ payload.businessName }}</h5>
-      <p class="font-normal text-gray-400 mt-2">{{ payload.businessCategory }}</p>
+      <p class="font-normal text-xs md:text-base text-gray-400 mt-2">{{ payload.businessCategory }}</p>
     </a>
   </div>
 </template>
