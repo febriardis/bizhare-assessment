@@ -1,5 +1,5 @@
 <template>
-  <Tutorial />
+  <div class="index">ini index</div>
 </template>
 
 <script>
