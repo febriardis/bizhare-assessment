@@ -38,19 +38,15 @@
 
     <!-- pagination -->
     <div class="pagination" v-if="pagination && pagination.total_page">
-      <div class="page-info">
-        <p
-          class="text-gray-500 text-sm"
-        >Halaman {{ pagination.page }} dari {{ pagination.total_page }}</p>
-      </div>
-      <div class="page-action flex justify-end">
-        <Pagination
-          :total-items="pagination.total_record"
-          :current-page="filters.page"
-          :per-page="filters.size"
-          @page-changed="($event) => filters.page = $event"
-        />
-      </div>
+      <p
+        class="text-gray-500 text-sm mb-2 md:mb-0"
+      >Halaman {{ pagination.page }} dari {{ pagination.total_page }}</p>
+      <Pagination
+        :total-items="pagination.total_record"
+        :current-page="filters.page"
+        :per-page="filters.size"
+        @page-changed="($event) => filters.page = $event"
+      />
     </div>
     <!-- end pagination -->
   </div>
@@ -131,6 +127,6 @@ export default {
 
 <style lang="scss">
 .pagination {
-  @apply flex justify-between m-5 mt-14 items-center;
+  @apply text-center md:flex md:justify-between md:items-center m-5 mt-14;
 }
 </style>

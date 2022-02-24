@@ -1,7 +1,7 @@
 
 <template>
-  <div :class="{ 'flex justify-between items-center': goButton }">
-    <div :class="{ 'flex justify-between items-center': (styled === 'simple') }">
+  <div :class="{ 'flex justify-center md:justify-between items-center': goButton }">
+    <div :class="{ 'flex justify-center md:justify-between items-center': (styled === 'simple') }">
       <nav
         class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px"
         aria-label="Pagination"
