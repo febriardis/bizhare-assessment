@@ -1,12 +1,20 @@
-# IMF Seller Center
-
-IMF Seller Center is core project for indie Omnipos,
-made with nuxt and composition API.
+# Bizhare Assessment Project
 
 ## Preview
+- https://bizhare-assessment.herokuapp.com/
 
-1. Development : https://seller-v1.olyuk.com
-2. Production : https://seller-v1.indiemarketfest.com
+## Overview of tect stack
+- Nuxt Js Framework
+  * Write Vue Files (*.vue),
+  * Automatic Code Splitting,
+  * Server-Side Rendering,
+  * Powerful Routing System with Asynchronous Data,
+  * Static File Serving,
+  * ES6/ES7 Transpilation,
+  * Bundling and minifying of your JS & CSS,
+  * etc.
+- Tailwind CSS
+- Axios
 
 ## 📜 Requirements
 1. install [node.js](https://nodejs.org/en/)
@@ -17,7 +25,7 @@ made with nuxt and composition API.
 Clone the project first
 
 ```bash
-git clone https://gitlab.com/indie-market/imf-seller-center.git
+git clone https://github.com/febriardis/bizhare-assessment.git
 ```
 
 ## Usage
@@ -30,16 +38,6 @@ npm run dev
 ```
 
 Finish.
-
-## 🤝 Contributing
-Merge into `master` branch only by Maintainers. Send pull request to merge your feature into `develop` branch and make sure its tested at least with yourself.
-
-We are using a simple gitflow with 4 other branches exclude `master` and `develop`
-
-1. `hotfix` directory
-2. `feature` directory
-3. `release` directory
-4. `sprint` directory
 
 > Your commit message and pull request **should be easy to understand and easy to track**
 
