@@ -6,8 +6,16 @@
         <SearchField v-model="filters.businessName" />
       </div>
       <div class="filter-wrapper">
-        <v-button icon-left="far fa-folder" variant="outlined">Kategori</v-button>
+        <v-button
+          icon-left="far fa-folder"
+          variant="outlined"
+          @click="isCategoryFilter = true"
+        >Kategori</v-button>
       </div>
+
+      <!-- filter dialog -->
+      <FilterDialog v-model="isCategoryFilter" @loadData="$event => fetchBusiness($event)" />
+      <!-- end filter dialog -->
     </div>
     <!-- end filter -->
 
@@ -28,6 +36,7 @@
     </div>
     <!-- end load data -->
 
+    <!-- pagination -->
     <div class="pagination" v-if="pagination && pagination.total_page">
       <div class="page-info">
         <p
@@ -43,6 +52,7 @@
         />
       </div>
     </div>
+    <!-- end pagination -->
   </div>
 </template>
 
@@ -54,6 +64,7 @@ export default {
   components: {
     SearchField: () => import('@/components/atoms/SearchField'),
     BusinessCard: () => import('@/components/molecules/BusinessCard'),
+    FilterDialog: () => import('@/components/organisms/FilterDialog'),
     Pagination: () => import('@/components/molecules/Pagination'),
   },
   setup(_, {root}) {
@@ -61,6 +72,7 @@ export default {
       business: [],
       pagination: null,
       isLoading: false,
+      isCategoryFilter: false
     })
 
     const filters = reactive({
@@ -78,12 +90,15 @@ export default {
       {deep: true}
     )
 
-    const fetchBusiness = async () => {
+    const fetchBusiness = async (businessIds) => {
       state.isLoading = true
       const response = await root.$http({
         method: "POST",
         url: "/business/parent/all",
-        data: filters
+        data: {
+          ...filters,
+          listCategory: businessIds
+        }
       });
       if (response.data.success) {
         const data = response.data.data;
@@ -107,6 +122,7 @@ export default {
 
     return {
       filters,
+      fetchBusiness,
       ...toRefs(state)
     }
   },
@@ -115,6 +131,6 @@ export default {
 
 <style lang="scss">
 .pagination {
-  @apply grid grid-cols-2 m-5 mt-14 items-center;
+  @apply flex justify-between m-5 mt-14 items-center;
 }
 </style>

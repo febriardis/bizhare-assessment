@@ -71,18 +71,18 @@ export default {
 
 <style lang="scss">
 button {
-  @apply font-light md:font-semibold block transition duration-100 ease-in-out focus:border-gray-500 focus:ring-2 focus:ring-gray-500 focus:outline-none focus:ring-opacity-50;
+  @apply font-light md:font-semibold block transition duration-100 ease-in-out focus:ring-2 focus:ring-gray-500 focus:outline-none focus:ring-opacity-50;
   &:disabled {
     @apply opacity-50 cursor-not-allowed;
   }
   &.default {
-    @apply text-white border border-transparent shadow-sm bg-gray-500 hover:bg-gray-600;
+    @apply text-white border border-transparent shadow-sm bg-sky-900 hover:bg-sky-600 focus:border-sky-500;
   }
   &.outlined {
-    @apply text-gray-500 border border-gray-500 shadow-sm hover:bg-gray-100;
+    @apply text-gray-500 border border-gray-500 shadow-sm hover:bg-gray-100 focus:border-gray-500;
   }
   &.text {
-    @apply border border-transparent;
+    @apply border border-transparent focus:border-transparent;
   }
 }
 </style>
