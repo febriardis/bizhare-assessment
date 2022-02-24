@@ -71,7 +71,7 @@ export default {
 
 <style lang="scss">
 button {
-  @apply font-light md:font-bold block transition duration-100 ease-in-out focus:border-gray-500 focus:ring-2 focus:ring-gray-500 focus:outline-none focus:ring-opacity-50;
+  @apply font-light md:font-semibold block transition duration-100 ease-in-out focus:border-gray-500 focus:ring-2 focus:ring-gray-500 focus:outline-none focus:ring-opacity-50;
   &:disabled {
     @apply opacity-50 cursor-not-allowed;
   }

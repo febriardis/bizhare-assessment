@@ -4,21 +4,25 @@
     @click="handleChange()"
   >
     <i class="fas fa-search mr-2"></i>
-    <input ref="query" type="text" placeholder="Type your location" @blur="handleChange()" />
+    <input
+      ref="query"
+      type="text"
+      v-model="innerValue"
+      placeholder="Cari nama bisnis"
+      @blur="handleChange()"
+    />
   </a>
 </template>
 
 <script>
+import _ from "lodash";
+
 export default {
   name: 'SearchField',
   props: {
-    border: {
-      type: Boolean,
-      default: true
-    },
-    isFullwidth: {
-      type: Boolean,
-      default: false
+    value: {
+      default: "",
+      type: String
     }
   },
   data: () => ({
@@ -30,6 +34,23 @@ export default {
       setTimeout(() => {
         if (this.isInput) this.$refs.query.focus()        
       }, 500);
+    },
+    debounceInput: _.debounce(function(value) {
+      if (value.length > 2) {
+        this.$emit("input", value);
+      } else {
+        this.$emit("input", null);
+      }
+    }, 500)
+  },
+  computed: {
+    innerValue: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.debounceInput(value);
+      }
     }
   }
 }
