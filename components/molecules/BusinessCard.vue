@@ -33,6 +33,6 @@ export default {
 
 <style lang="scss">
 .card-article {
-  @apply border shadow-md p-4 rounded;
+  @apply border shadow-md p-2 md:p-4 rounded;
 }
 </style>

@@ -26,7 +26,7 @@
     <!-- end empty state -->
 
     <!-- load data -->
-    <div class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3 md:gap-6 m-5">
+    <div class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3 md:gap-6 m-3 md:m-5">
       <template v-if="isLoading">
         <BusinessCard v-for="(item, key) in 6" :key="key" is-skeleton />
       </template>
