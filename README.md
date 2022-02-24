@@ -1,68 +1,47 @@
-# bizhare-assessment
+# IMF Seller Center
 
-## Build Setup
+IMF Seller Center is core project for indie Omnipos,
+made with nuxt and composition API.
+
+## Preview
+
+1. Development : https://seller-v1.olyuk.com
+2. Production : https://seller-v1.indiemarketfest.com
+
+## 📜 Requirements
+1. install [node.js](https://nodejs.org/en/)
+2. ```npm install -g @vue/cli```
+
+## 🔧 Installation
+
+Clone the project first
 
 ```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+git clone https://gitlab.com/indie-market/imf-seller-center.git
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+## Usage
 
-## Special Directories
+```bash
+npm install
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+# run project
+npm run dev
+```
 
-### `assets`
+Finish.
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+## 🤝 Contributing
+Merge into `master` branch only by Maintainers. Send pull request to merge your feature into `develop` branch and make sure its tested at least with yourself.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+We are using a simple gitflow with 4 other branches exclude `master` and `develop`
 
-### `components`
+1. `hotfix` directory
+2. `feature` directory
+3. `release` directory
+4. `sprint` directory
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+> Your commit message and pull request **should be easy to understand and easy to track**
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
