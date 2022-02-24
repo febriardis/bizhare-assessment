@@ -43,8 +43,8 @@
       >Halaman {{ pagination.page }} dari {{ pagination.total_page }}</p>
       <Pagination
         :total-items="pagination.total_record"
-        :current-page="filters.page"
-        :per-page="filters.size"
+        :current-page="pagination.page"
+        :per-page="pagination.page_size"
         @page-changed="($event) => filters.page = $event"
       />
     </div>
@@ -102,6 +102,7 @@ export default {
         state.pagination = {
           total_record: data.total,
           total_page: data.pages,
+          page_size: data.pageSize,
           page: data.pageNum
         };
         state.isLoading = false
