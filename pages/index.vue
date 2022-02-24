@@ -34,8 +34,13 @@
           class="text-gray-500 text-sm"
         >Halaman {{ pagination.page }} dari {{ pagination.total_page }}</p>
       </div>
-      <div class="page-action">
-        <VuePagination v-model="filters.page" :per-page="filters.size" :records="pagination.total_record" @paginate="myCallback" />
+      <div class="page-action flex justify-end">
+        <Pagination
+          :total-items="pagination.total_record"
+          :current-page="filters.page"
+          :per-page="filters.size"
+          @page-changed="($event) => filters.page = $event"
+        />
       </div>
     </div>
   </div>
@@ -48,7 +53,8 @@ export default {
   name: 'IndexPage',
   components: {
     SearchField: () => import('@/components/atoms/SearchField'),
-    BusinessCard: () => import('@/components/molecules/BusinessCard.vue'),
+    BusinessCard: () => import('@/components/molecules/BusinessCard'),
+    Pagination: () => import('@/components/molecules/Pagination'),
   },
   setup(_, {root}) {
     const state = reactive({
@@ -94,10 +100,6 @@ export default {
         state.isLoading = false
       }
     }
-
-    const myCallback = () => {
-      console.log('myCallback')
-    }
     
     onMounted(() => {
       fetchBusiness()
@@ -105,7 +107,6 @@ export default {
 
     return {
       filters,
-      myCallback,
       ...toRefs(state)
     }
   },
@@ -114,6 +115,6 @@ export default {
 
 <style lang="scss">
 .pagination {
-  @apply grid grid-cols-2 m-5;
+  @apply grid grid-cols-2 m-5 mt-14 items-center;
 }
 </style>
