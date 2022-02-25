@@ -1,7 +1,7 @@
 # Bizhare Assessment Project
 
 ## Preview
-- https://bizhare-assessment.herokuapp.com/
+- http://bizhare-assessment.herokuapp.com/
 
 ## Overview of tect stack
 - Nuxt Js Framework
