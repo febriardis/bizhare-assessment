@@ -2,7 +2,7 @@ import Vue from "vue";
 import axios from "axios";
 
 const HTTP = axios.create({
-  baseURL: "http://147.139.184.208:17001",
+  baseURL: "http://sandbox.bizharedev.id:17001", 
   headers: {}
 });
 

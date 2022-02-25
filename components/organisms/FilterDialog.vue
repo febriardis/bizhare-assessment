@@ -70,7 +70,8 @@ export default {
     }
 
     const submitFilter = () => {
-      emit('loadData', state.category_temporary)
+      emit('clearFilter')
+      emit('setData', state.category_temporary)
       isVisible.value = false
     }
 

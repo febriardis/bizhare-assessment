@@ -40,7 +40,7 @@ export default {
 
 <style lang="scss">
 .v-modal {
-  @apply fixed top-0 bottom-0 left-0 right-0 flex justify-center pt-28;
+  @apply fixed top-0 bottom-0 left-0 right-0 flex justify-center pt-28 z-10;
   .dialog {
     width: 450px;
     @apply absolute bg-white rounded h-full md:h-auto;

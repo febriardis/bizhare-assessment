@@ -10,7 +10,7 @@
       <h5
         class="text-base font-semibold md:font-bold md:text-xl mt-2 text-gray-900"
       >{{ payload.businessName }}</h5>
-      <p class="font-normal text-xs md:text-base text-gray-400 mt-2">{{ payload.businessCategory }}</p>
+      <p class="font-normal text-xs md:text-base text-gray-400 mt-2">{{ payload.businessCategoryName }}</p>
     </a>
   </div>
 </template>

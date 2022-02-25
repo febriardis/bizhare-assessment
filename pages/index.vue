@@ -3,7 +3,7 @@
     <!-- filter -->
     <div class="flex items-center gap-2 bg-gray-100 py-2 px-4">
       <div class="w-full">
-        <SearchField v-model="filters.businessName" />
+        <SearchField v-model="filters.businessName" @input="clearFilter()" />
       </div>
       <div class="filter-wrapper">
         <v-button
@@ -14,7 +14,11 @@
       </div>
 
       <!-- filter dialog -->
-      <FilterDialog v-model="isCategoryFilter" @loadData="$event => fetchBusiness($event)" />
+      <FilterDialog
+        v-model="isCategoryFilter"
+        @setData="$event => filters.listCategory = $event"
+        @clearFilter="clearFilter()"
+      />
       <!-- end filter dialog -->
     </div>
     <!-- end filter -->
@@ -37,14 +41,14 @@
     <!-- end load data -->
 
     <!-- pagination -->
-    <div class="pagination" v-if="pagination && pagination.total_page">
+    <div class="pagination" v-if="pagination && business.length">
       <p
         class="text-gray-500 text-sm mb-2 md:mb-0"
-      >Halaman {{ pagination.page }} dari {{ pagination.total_page }}</p>
+      >Halaman {{ filters.page }} dari {{ pagination.total_page }}</p>
       <Pagination
         :total-items="pagination.total_record"
-        :current-page="pagination.page"
-        :per-page="pagination.page_size"
+        :current-page="filters.page"
+        :per-page="pagination.size"
         @page-changed="($event) => filters.page = $event"
       />
     </div>
@@ -86,24 +90,20 @@ export default {
       {deep: true}
     )
 
-    const fetchBusiness = async (businessIds) => {
+    const fetchBusiness = async () => {
       state.isLoading = true
       const response = await root.$http({
         method: "POST",
         url: "/business/parent/all",
-        data: {
-          ...filters,
-          listCategory: businessIds
-        }
+        data: filters
       });
       if (response.data.success) {
         const data = response.data.data;
-        state.business = data.list;
+        state.business = data.content;
         state.pagination = {
-          total_record: data.total,
-          total_page: data.pages,
-          page_size: data.pageSize,
-          page: data.pageNum
+          total_record: data.totalElements,
+          total_page: data.totalPages,
+          size: data.size
         };
         state.isLoading = false
       } else {
@@ -117,8 +117,13 @@ export default {
       fetchBusiness()
     })
 
+    const clearFilter = () => {
+      filters.page = 1
+    }
+
     return {
       filters,
+      clearFilter,
       fetchBusiness,
       ...toRefs(state)
     }
